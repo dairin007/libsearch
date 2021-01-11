@@ -5,10 +5,11 @@ from flask_httpauth import HTTPBasicAuth
 
 # ../run.py用
 import app.search as sr
-#import search as sr
 
-USER=os.environ["USER"]
-PASS=os.environ["PASS"]
+# import search as sr
+
+USER = os.environ["USER"]
+PASS = os.environ["PASS"]
 
 users = {
     USER: PASS,
@@ -16,6 +17,7 @@ users = {
 
 app = Flask(__name__)
 auth = HTTPBasicAuth()
+
 
 @auth.get_password
 def get_pw(username):
@@ -38,6 +40,13 @@ def dated_url_for(endpoint, **values):
     return url_for(endpoint, **values)
 
 
+@app.before_request
+def before_request():
+    url = request.url.replace("http://", "https://", 1)
+    code = 301
+    return redirect(url, code=code)
+
+
 @app.route("/")
 def routing():
     return redirect("/index", code=302)
@@ -56,13 +65,13 @@ def post():
     except:
         return render_template("error.html")
     keyword = request.form["keyword"]
-    st_time=time.perf_counter()
+    st_time = time.perf_counter()
     try:
         result = sr.search(keyword, num)
     except:
         return render_template("error.html")
-    end_time=time.perf_counter()
-    tim=end_time-st_time
+    end_time = time.perf_counter()
+    tim = end_time - st_time
     if 20 < tim:
         return render_template("pre_timeout.html")
     return render_template("index.html", result=result)
