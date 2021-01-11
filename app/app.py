@@ -40,14 +40,6 @@ def dated_url_for(endpoint, **values):
     return url_for(endpoint, **values)
 
 
-@app.before_request
-def before_request():
-    if not request.is_secure():
-        url = request.url.replace("http://", "https://", 1)
-        code = 301
-        return redirect(url, code=code)
-
-
 @app.route("/")
 def routing():
     return redirect("/index", code=302)
