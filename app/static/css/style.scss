@@ -1,0 +1,191 @@
+$color-mozi: #313131;
+
+body {
+  font: 20px/1.6 "Hiragino Kaku Gothic Pro", Osaka, "メイリオ",
+    "ＭＳ Ｐゴシック", "MS PGothic", Verdana, Arial, sans-serif;
+  margin: 0;
+  color: $color-mozi;
+}
+
+header {
+  display: block;
+  width: 60%;
+  margin-left: 30%;
+  overflow: hidden;
+  h1 {
+    font-size: 48pt;
+    color: $color-mozi;
+    margin-top: 20px;
+    margin-left: 0;
+    margin-bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: 1px solid $color-mozi;
+    border-radius: 5px;
+    letter-spacing: 3px;
+    font-weight: 100;
+    float: left;
+  }
+}
+.Form {
+  width: 25%;
+  margin-left: 25%;
+}
+// .RESULT {
+//   display: block;
+//   .result_name {
+//     display: block;
+//     width: 60%;
+//     text-align: center;
+//   }
+// }
+
+.oklist {
+  margin-top: 30pt;
+}
+.nglist {
+  margin-top: 10pt;
+}
+section {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  overflow: hidden;
+  article {
+    width: calc(70% - 5px); /*横幅の指定*/
+    padding: 2.5%; /*余白の指定*/
+    margin-bottom: 20px;
+    background-color: #f9f9f9; /*背景色の指定*/
+    overflow: hidden; /*おまじない*/
+    float: left; /*フロートする*/
+    article {
+      width: calc(50% - 15px); /*横幅の指定*/
+      padding: 2.5%; /*余白の指定*/
+      margin-bottom: 5px;
+      overflow: hidden; /*おまじない*/
+      &:nth-child(2n) {
+        margin-left: 30px; /*2の倍数の記事は左側に余白を30px*/
+      }
+      h1 {
+        width: 100%; /*横幅の指定*/
+        color: $color-mozi; /*文字色の変更*/
+        letter-spacing: 3px; /*文字と文字の間隔をあける*/
+        padding-bottom: 2px; /*文字下部の余白指定*/
+        padding-top: 10px; /*文字上部の余白指定*/
+        border-bottom: 1px solid #bababa; /*文字の下部に線を描く*/
+        margin-bottom: 15px; /*セクションタイトルの下に余白をつくる*/
+        float: left; /*フロートする*/
+      }
+      .auther,
+      .abst,
+      .oklist,
+      .nglist {
+        letter-spacing: 3px; /*文字と文字の間隔をあける*/
+        padding-bottom: 2px; /*文字下部の余白指定*/
+        padding-top: 10px; /*文字上部の余白指定*/
+      }
+      a {
+        font-size: 100%; /*フォントサイズの指定*/
+        letter-spacing: 3px; /*文字と文字の間隔をあける*/
+        margin-bottom: 10px; /*文字とボタンの間をあける*/
+        text-decoration: none;
+        font-weight: bold;
+        &:link {
+          color: #f29c9f;
+        }
+        &:hover {
+          color: #8ec298;
+          text-decoration: underline;
+        }
+        &active {
+          color: #33cc00;
+        }
+      }
+    }
+  }
+}
+
+/* Input Styles */
+.form {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  background: #f8f8f8;
+  border: 1px solid rgba(0, 0, 0, 0.075);
+  margin-bottom: 25px;
+  color: #727272 !important;
+  font-size: 13px;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+  &:hover {
+    border: 1px solid #8bc3a3;
+  }
+  &:focus {
+    color: white;
+    outline: none;
+    border: 1px solid #8bc3a3;
+  }
+}
+
+.button {
+  padding: 8px 12px;
+  background: #0a5175;
+  display: block;
+  width: 120px;
+  margin: 10px 0 0px 0;
+  border-radius: 3px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  font-size: 0.8em;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+  &:hover {
+    background: #8bc3a3;
+    color: white;
+  }
+}
+
+.form-btn {
+  width: 180px;
+  display: block;
+  height: auto;
+  padding: 15px;
+  color: #fff;
+  background: #8bc3a3;
+  border: none;
+  border-radius: 3px;
+  outline: none;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  margin: auto;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+  &:hover {
+    background: #111;
+    color: white;
+    border: none;
+  }
+  &:active {
+    opacity: 0.9;
+  }
+}
+
+center {
+  margin-top: 330px;
+}
+
+input {
+  position: relative;
+  z-index: 9999;
+}
