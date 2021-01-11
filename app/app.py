@@ -2,7 +2,7 @@ import os
 import time
 from flask import Flask, redirect, render_template, request, url_for
 from flask_httpauth import HTTPBasicAuth
-
+from flask_sslify import SSLify
 # ../run.py用
 import app.search as sr
 
@@ -17,6 +17,7 @@ users = {
 
 app = Flask(__name__)
 auth = HTTPBasicAuth()
+sslify = SSLify(app)
 
 
 @auth.get_password
