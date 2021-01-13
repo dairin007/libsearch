@@ -3,6 +3,8 @@ import sys
 import time
 import os
 import requests
+import re
+import mojimoji
 
 RAKUTEN_API = os.environ["RAKUTEN_API"]
 CALIL_API = os.environ["CALIL_API"]
@@ -41,13 +43,20 @@ def book_info(result, num):
     bookinfo = []
     try:
         for i in range(num):
-            title = json.dumps(result["Items"][i]["Item"]["title"], ensure_ascii=False)
-            author = json.dumps(
-                result["Items"][i]["Item"]["author"], ensure_ascii=False
+            title = mojimoji.zen_to_han(
+                json.dumps(result["Items"][i]["Item"]["title"], ensure_ascii=False),
+                kana=False,
+            )
+            author = mojimoji.zen_to_han(
+                json.dumps(result["Items"][i]["Item"]["author"], ensure_ascii=False),
+                kana=False,
             )
             isbn = json.dumps(result["Items"][i]["Item"]["isbn"], ensure_ascii=False)
-            abst = json.dumps(
-                result["Items"][i]["Item"]["itemCaption"], ensure_ascii=False
+            abst = mojimoji.zen_to_han(
+                json.dumps(
+                    result["Items"][i]["Item"]["itemCaption"], ensure_ascii=False
+                ),
+                kana=False,
             )
             if 150 < len(abst):
                 abst = abst[1:150] + " ......"
@@ -56,7 +65,7 @@ def book_info(result, num):
                     "title": title[1:-1],
                     "auther": author[1:-1],
                     "isbn": isbn[1:-1],
-                    "abst": abst,
+                    "abst": abst.replace('"', ""),
                 }
             )
     except:

@@ -5,23 +5,25 @@
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>webcom</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href='https://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
 
 </head>
 
 <body>
-    <header>
+    <div class="conteinar">
         <h1>蔵書検索</h1>
-    </header>
+    </div>
 
     <div class="Form">
         <form method="POST" action="/index">
             <div class="col-xs-6 wow animated slideInLeft" data-wow-delay=".5s">
-                <input type="text" name="keyword" id="keyword" required="required" class="form" placeholder="Keyword";/>
-                <input type="number" name="num" id="search_num" required="required" class="form"
-                    placeholder="Number" max="10" min="1"  />
+                <input type="text" name="keyword" id="keyword" required="required" class="form" placeholder="Keyword"
+                    ; />
+                <input type="number" name="num" id="search_num" required="required" class="form" placeholder="Number"
+                    max="10" min="1" />
             </div>
             <div class="relative fullwidth col-xs-12">
                 <button type="submit" id="submit" name="submit" class="form-btn semibold">Search Start</button>
@@ -33,53 +35,51 @@
     <div class="mx-auto w-75">
         <div class="RESULT">
             <section>
-                <div class="mx-auto w-75">
-                    {% for ele in result %}
+                {% for ele in result %}
+                <article>
                     <article>
-                        <article>
-                            <h1>{{ele["title"]}}</h1>
-                            <div class="auther">
-                                <p>筆者: {{ele["auther"]}}</p>
-                            </div>
-                            <div class="abst">
-                                <p>概要: {{ele["abst"][1:-1]}}</p>
-                            </div>
-                            <br>
-                            {% if ele["url"] != "none" %}
-                            <a class="url" href={{ele["url"]}} target="_blank">図書館サイト</a>
-                            {% else %}
-                            蔵書していません
-                            {% endif %}
-                        </article>
-                        <article>
-                            <div class="oklist">
-                                <p>
+                        <h1>{{ele["title"]}}</h1>
+                        <div class="auther">
+                            <p>筆者: {{ele["auther"]}}</p>
+                        </div>
+                        <div class="abst">
+                            <p>概要: {{ele["abst"]}}</p>
+                        </div>
+                        <br>
+                        {% if ele["url"] != "none" %}
+                        <a class="url" href={{ele["url"]}} target="_blank">図書館サイト</a>
+                        {% else %}
+                        蔵書していません
+                        {% endif %}
+                    </article>
+                    <article>
+                        <div class="oklist">
+                            <p>
                                 貸出可能館:
                                 {% if ele["ok_lib"] %}
                                 {% for i in ele["ok_lib"] %}
                                 {% if i != "none" %}
-                                {{i}}
+                                {{i}}&nbsp;
                                 {% endif %}
                                 {% endfor %}
                                 {% endif %}
-                                </p>
-                            </div>
-                            <div class="nglist">
-                                <p>
+                            </p>
+                        </div>
+                        <div class="nglist">
+                            <p>
                                 貸出中:
                                 {% if ele["ng_lib"] %}
                                 {% for i in ele["ng_lib"] %}
                                 {% if i != "none" %}
-                                {{i}}
+                                {{i}}&nbsp;
                                 {% endif %}
                                 {% endfor %}
                                 {% endif %}
-                                </p>
-                            </div>
-                        </article>
+                            </p>
+                        </div>
                     </article>
-                    {% endfor %}
-                </div>
+                </article>
+                {% endfor %}
             </section>
         </div>
     </div>

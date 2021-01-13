@@ -7,16 +7,14 @@ body {
   color: $color-mozi;
 }
 
-header {
-  display: block;
-  width: 60%;
-  margin-left: 30%;
+.conteinar{
   overflow: hidden;
+  background-color: rgba(227, 255, 202, 0.9);
   h1 {
-    font-size: 48pt;
+    font-size: 25pt;
     color: $color-mozi;
+    margin-left:10%;
     margin-top: 20px;
-    margin-left: 0;
     margin-bottom: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -27,20 +25,14 @@ header {
     letter-spacing: 3px;
     font-weight: 100;
     float: left;
+    text-align:center;
   }
 }
 .Form {
   width: 25%;
-  margin-left: 25%;
+  margin:3% auto;
 }
-// .RESULT {
-//   display: block;
-//   .result_name {
-//     display: block;
-//     width: 60%;
-//     text-align: center;
-//   }
-// }
+
 
 .oklist {
   margin-top: 30pt;
@@ -57,19 +49,21 @@ section {
   margin-left: auto;
   overflow: hidden;
   article {
-    width: calc(70% - 5px); /*横幅の指定*/
     padding: 2.5%; /*余白の指定*/
+    width: 100%;
+    margin: auto;
     margin-bottom: 20px;
     background-color: #f9f9f9; /*背景色の指定*/
-    overflow: hidden; /*おまじない*/
+    overflow: hidden;
     float: left; /*フロートする*/
     article {
-      width: calc(50% - 15px); /*横幅の指定*/
+      width: calc(60% - 15px); /*横幅の指定*/
       padding: 2.5%; /*余白の指定*/
       margin-bottom: 5px;
-      overflow: hidden; /*おまじない*/
+      overflow: hidden;
       &:nth-child(2n) {
         margin-left: 30px; /*2の倍数の記事は左側に余白を30px*/
+        width: calc(40% - 15px); /*横幅の指定*/
       }
       h1 {
         width: 100%; /*横幅の指定*/
