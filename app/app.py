@@ -1,5 +1,4 @@
 import os
-import time
 from flask import Flask, redirect, render_template, request, url_for
 from flask_httpauth import HTTPBasicAuth
 from flask_sslify import SSLify
@@ -60,15 +59,10 @@ def post():
     except:
         return render_template("error.html")
     keyword = request.form["keyword"]
-    st_time = time.perf_counter()
     try:
         result = sr.search(keyword, num)
     except:
         return render_template("error.html")
-    end_time = time.perf_counter()
-    tim = end_time - st_time
-    if 20 < tim:
-        return render_template("pre_timeout.html")
     return render_template("index.html", result=result)
 
 
