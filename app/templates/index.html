@@ -47,10 +47,10 @@
                         </div>
                         <br>
                         {{ele["url"]}}
-                        {% if ele["url"] != "none" %}
-                        <a class="url" href={{ele["url"]}} target="_blank">図書館サイト</a>
-                        {% else %}
+                        {% if ele["url"] = "none" %}
                         蔵書していません
+                        {% else %}
+                        <a class="url" href={{ele["url"]}} target="_blank">図書館サイト</a>
                         {% endif %}
                     </article>
                     <article>
