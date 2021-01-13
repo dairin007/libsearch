@@ -1,22 +1,21 @@
 @charset "UTF-8";
 body {
-  font: 20px/1.6 "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", "ＭＳ Ｐゴシック", "MS PGothic", Verdana, Arial, sans-serif;
+  font: 20px/1.6 "Hiragino Kaku Gothic Pro", Osaka, "メイリオ",
+ "ＭＳ Ｐゴシック", "MS PGothic", Verdana, Arial, sans-serif;
   margin: 0;
   color: #313131;
 }
 
-header {
-  display: block;
-  width: 60%;
-  margin-left: 30%;
+.conteinar {
   overflow: hidden;
+  background-color: rgba(227, 255, 202, 0.9);
 }
 
-header h1 {
-  font-size: 48pt;
+.conteinar h1 {
+  font-size: 25pt;
   color: #313131;
+  margin-left: 10%;
   margin-top: 20px;
-  margin-left: 0;
   margin-bottom: 20px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -27,11 +26,12 @@ header h1 {
   letter-spacing: 3px;
   font-weight: 100;
   float: left;
+  text-align: center;
 }
 
 .Form {
   width: 25%;
-  margin-left: 25%;
+  margin: 3% auto;
 }
 
 .oklist {
@@ -53,32 +53,32 @@ section {
 }
 
 section article {
-  width: calc(70% - 5px);
-  /*横幅の指定*/
   padding: 2.5%;
   /*余白の指定*/
+  width: 100%;
+  margin: auto;
   margin-bottom: 20px;
   background-color: #f9f9f9;
   /*背景色の指定*/
   overflow: hidden;
-  /*おまじない*/
   float: left;
   /*フロートする*/
 }
 
 section article article {
-  width: calc(50% - 15px);
+  width: calc(60% - 15px);
   /*横幅の指定*/
   padding: 2.5%;
   /*余白の指定*/
   margin-bottom: 5px;
   overflow: hidden;
-  /*おまじない*/
 }
 
 section article article:nth-child(2n) {
   margin-left: 30px;
   /*2の倍数の記事は左側に余白を30px*/
+  width: calc(40% - 15px);
+  /*横幅の指定*/
 }
 
 section article article h1 {
