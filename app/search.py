@@ -62,9 +62,9 @@ def book_info(result, num):
                 abst = abst[1:150] + " ......"
             bookinfo.append(
                 {
-                    "title": title[1:-1],
-                    "auther": author[1:-1],
-                    "isbn": isbn[1:-1],
+                    "title": title.replace('"', ""),
+                    "auther": author.replace('"', ""),
+                    "isbn": isbn.replace('"', ""),
                     "abst": abst.replace('"', ""),
                 }
             )
